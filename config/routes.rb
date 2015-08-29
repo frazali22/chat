@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :rolls
+  devise_for :admins
   devise_for :users
   get 'pages/info'
+  get '/check/:id' => 'rolls#check'
 
   resources :ideas
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +27,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
