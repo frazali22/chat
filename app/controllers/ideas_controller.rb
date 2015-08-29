@@ -4,16 +4,34 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
-    @user =current_user
-    @users =  User.all
-    @posts = User.all
-    if params[:search]
-      @posts = User.search(params[:search]).order("created_at DESC")
-      @posts.name
+    if current_user.admin?
+        redirect_to rolls_path
+      @ideas = Idea.all
+
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        #@posts = User.all.order('created_at DESC')
+      end
+
     else
-      #@posts = User.all.order('created_at DESC')
+      @ideas = Idea.all
+
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        #@posts = User.all.order('created_at DESC')
+      end
     end
+
   end
 
   # GET /ideas/1
@@ -34,7 +52,6 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
-
     respond_to do |format|
       if @idea.save
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }

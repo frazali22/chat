@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require chat
 //= require private_pub
-//= require_tree .
+//= require_tree
