@@ -47,7 +47,7 @@ class IdeasController < ApplicationController
         @posts = User.search(params[:search]).order("created_at DESC")
         @posts.name
       else
-        #@posts = User.all.order('created_at DESC')
+        @posts = User.all.order('created_at DESC')
       end
 
     else
@@ -60,7 +60,7 @@ class IdeasController < ApplicationController
         @posts = User.search(params[:search]).order("created_at DESC")
         @posts.name
       else
-        #@posts = User.all.order('created_at DESC')
+        @posts = User.all.order('created_at DESC')
       end
     end
 
