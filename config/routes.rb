@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'pages/info'
   get '/check/:id' => 'rolls#check'
 
+  get 'ideas/my' => 'ideas#my'
+  get 'ideas/sea' => 'ideas#sea'
   resources :ideas
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
