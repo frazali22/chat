@@ -6,45 +6,10 @@
 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <p class="article-title">
 
-  <% if @posts.present? %>
-    <h1>All Result Listed Here-my</h1>
-    <% @posts.each do |article| %>
-        <div class="article">
-          <h1 class="article-title"><%= image_tag(article.picture_url, :width => 100) if article.picture.present? %><%= article.name %></h1>
-          <p class="article-content"><%= article.email %><%= article.enrollment %><%= article.contact %></p>
-          <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                  "data-sid" => current_user.id, "data-rip" => article.id %>
-              </div>
-
-          <%  end %>
-          <% else %>
-
-          </p>
-          <% if (params[:search]) %>
-              <h1>All Result Listed Here</h1>
-              <p>There are no name in :db <%= params[:search] %>.</p>
-          <% end %>
-    <% end %>
 
 
 
 
-    <table class="table table-bordered">
-
-      <% @users.each_with_index do |user, index| %>
-
-          <tr>
-            <td><%= index +=1 %></td>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td>
-              <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                      "data-sid" => current_user.id, "data-rip" => user.id %>
-                  </td></br>
-                  </tr>
-
-              <% end %>
-              </table>
               <h1>ALL Posts</h1>
 
               <table class="table table-bordered">
@@ -63,9 +28,9 @@
                       <td><%= idea.name %></td>
                       <td><%= idea.description %></td>
                       <td><%= idea.picture %></td>
-                      <td><%= link_to 'Show', idea %></td>
-                      <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-                      <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td><%= link_to 'Show', idea, class:'btn btn-success' %></td>
+                      <td><%= link_to 'Edit', edit_idea_path(idea), class:'btn btn-success' %></td>
+                      <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn btn-success'%></td>
                     </tr>
                 <% end %>
                 </tbody>

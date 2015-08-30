@@ -26,10 +26,10 @@
     <div class="collapse navbar-collapse">
       <% if user_signed_in? %>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/ideas">Profile</a></li>
+            <li class="active"><a href="/ideas/my">Profile</a></li>
           </ul>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/ideas">Sms</a></li>
+            <li class="active"><a href="/ideas/sea">Post</a></li>
           </ul>
           <ul class="nav navbar-nav">
             <li class="active"><%= form_tag(ideas_path, :method => "get", id: "show") do %></li>
@@ -40,19 +40,14 @@
       <% else %>
           <% if admin_signed_in? %>
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/ideas">Profile</a></li>
+                <li class="active"><a href="/ideas/my">Profile</a></li>
               </ul>
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/ideas/my">Sms</a></li>
+                <li class="active"><a href="/ideas/sea">Post</a></li>
               </ul>
           <% end %>
           <% if !admin_signed_in? %>
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="/ideas">Tab1</a></li>
-              </ul>
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="/ideas">Tab2</a></li>
-              </ul>
+
           <% end %>
       <% end %>
 
