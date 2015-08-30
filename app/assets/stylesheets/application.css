@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree
  *= require_self
  */
@@ -17,3 +18,19 @@ body { padding-top: 100px; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
+
+.sign_margin {
+    border: 25px solid grey;
+    padding-bottom: 20px;
+    padding-left: 269px;
+    padding-top: 14px;
+}
+
+.pro-set {
+    border: 5px solid black;
+    margin-left: 10px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+}
+.pro-h3{font-family: serif;
+    margin-left: 114px;}

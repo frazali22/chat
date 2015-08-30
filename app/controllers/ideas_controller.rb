@@ -3,6 +3,68 @@ class IdeasController < ApplicationController
 
   # GET /ideas
   # GET /ideas.json
+  def sea
+    if current_user.admin?
+      redirect_to rolls_path
+      @ideas = Idea.all
+
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        #@posts = User.all.order('created_at DESC')
+      end
+
+    else
+      @ideas = Idea.all
+
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        #@posts = User.all.order('created_at DESC')
+      end
+    end
+
+  end
+
+
+  def my
+    if current_user.admin?
+      redirect_to rolls_path
+      @ideas = Idea.all
+
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        #@posts = User.all.order('created_at DESC')
+      end
+
+    else
+      @ideas = Idea.all
+
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        #@posts = User.all.order('created_at DESC')
+      end
+    end
+
+  end
   def index
     if current_user.admin?
         redirect_to rolls_path

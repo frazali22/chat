@@ -4,7 +4,7 @@
 <h1>Admin Panel</h1><br>
 <h1>All ENROLLMENT ID's</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Enrollment Id</th>
@@ -16,9 +16,9 @@
     <% @rolls.each do |roll| %>
       <tr>
         <td><%= roll.enroll %></td>
-        <td><%= link_to 'Show', roll %></td>
-        <td><%= link_to 'Edit', edit_roll_path(roll) %></td>
-        <td><%= link_to 'Destroy', roll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', roll, class:"btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_roll_path(roll), class:"btn btn-info" %></td>
+        <td><%= link_to 'Destroy', roll, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-info" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Roll', new_roll_path %>
+<%= link_to 'New Roll', new_roll_path , class:"btn btn-success" %>
