@@ -174,13 +174,18 @@ class IdeasController < ApplicationController
 
   # DELETE /ideas/1
   # DELETE /ideas/1.json
-  def destroy
-    @idea.destroy
+ def destroy
+    if current_user == @idea.user
+      @idea.destroy
+    else
+      redirect_to @idea, error: "You don't have permission."
+    end
     respond_to do |format|
       format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
