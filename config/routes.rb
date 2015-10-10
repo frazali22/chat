@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'ideas/my' => 'ideas#my' ,as: :my
   get 'ideas/sea' => 'ideas#sea' ,as: :sea
+  get 'ideas/sd' => 'ideas#sd' ,as: :sd
   resources :ideas
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
