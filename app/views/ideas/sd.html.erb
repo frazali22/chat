@@ -1,0 +1,20 @@
+<% if @posts.present? %>
+    <h1>All Result Listed Here-my</h1>
+    <% @posts.each do |article| %>
+        <div class="article">
+          <h1 class="article-title"><%= image_tag(article.picture_url, :width => 100) if article.picture.present? %><%= article.name %></h1>
+          <p class="article-content"><%= article.email %><%= article.enrollment %><%= article.contact %></p>
+          <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                  "data-sid" => current_user.id, "data-rip" => article.id %>
+              </div>
+
+          <%  end %>
+          <% else %>
+
+          </p>
+          <% if (params[:search]) %>
+              <h1>All Result Listed Here</h1>
+              <p>There are no name in :db <%= params[:search] %>.</p>
+          <% end %>
+    <% end %>
+

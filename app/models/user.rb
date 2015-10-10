@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
     where("name LIKE ?", "%#{search}%")
   end
   has_many :conversations, :foreign_key => :sender_id
+
 end

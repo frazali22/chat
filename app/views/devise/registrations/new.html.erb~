@@ -103,7 +103,6 @@ function submits()
           <%= hidden_field_tag "work_hour" ,roll.enroll,class:"ids#{@l}",:id => 'td' %>
         </td>
       </tr>
-
               <%   @l= @l.to_i+1
               %>
   <% end %>

@@ -34,7 +34,36 @@ class IdeasController < ApplicationController
 
   end
 
+  def sd
+    if current_user.admin?
+      redirect_to rolls_path
+      @ideas = Idea.all
 
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        @posts = User.all.order('created_at DESC')
+      end
+
+    else
+
+      @ideas = Idea.all
+      @user =current_user
+      @users =  User.all
+      @posts = User.all
+      if params[:search]
+        @posts = User.search(params[:search]).order("created_at DESC")
+        @posts.name
+      else
+        @posts = User.all.order('created_at DESC')
+      end
+    end
+
+  end
   def my
     if current_user.admin?
       redirect_to rolls_path
@@ -51,16 +80,20 @@ class IdeasController < ApplicationController
       end
 
     else
-      @ideas = Idea.all
 
+      @ideas = Idea.all
       @user =current_user
       @users =  User.all
       @posts = User.all
       if params[:search]
+        puts "****************************************************************"
         @posts = User.search(params[:search]).order("created_at DESC")
         @posts.name
+        puts "****************************************************************"
       else
+        puts "////////////////////////////////////////////////////////////////"
         @posts = User.all.order('created_at DESC')
+        puts "////////////////////////////////////////////////////////////////"
       end
     end
 

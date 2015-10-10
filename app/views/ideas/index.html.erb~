@@ -9,6 +9,7 @@
 
 
 <table class="table table-striped">
+<th>ID</th>
 <th>Name</th>
 <th>Department</th>
 <th>Work Place</th>
@@ -17,6 +18,7 @@
   <% @users.each_with_index do |user, index| %>
 
       <tr>
+        <td><%= index +=1 %></td>
         <td><%= user.name %></td>
         <td><%= user.department %></td>	
         <td><%= user.work_place %></td>

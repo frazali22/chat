@@ -32,7 +32,7 @@
             <li class="active"><a href="/ideas/sea">Post</a></li>
           </ul>
           <ul class="nav navbar-nav">
-            <li class="active"><%= form_tag(ideas_path, :method => "get", id: "show") do %></li>
+            <li class="active"><%= form_tag(sd_path, :method => "get", id: "show") do %></li>
             <li class="active"><%= text_field_tag :search, params[:search], placeholder: "Search Posts" %></li>
             <li class="active"><%= submit_tag "Search" %></li>
               </ul>

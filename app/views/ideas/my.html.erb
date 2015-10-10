@@ -22,8 +22,9 @@
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn btn-large btn-block btn-success' %>
 </div>
 
-  <% if @posts.present? %>
-    <h1>All Result Listed Here-my</h1>
+<% if @posts.present? %>
+
+    <h1>All Result Listed Here</h1>
     <% @posts.each do |article| %>
         <div class="article">
           <h1 class="article-title"><%= image_tag(article.picture_url, :width => 100) if article.picture.present? %><%= article.name %></h1>
@@ -41,6 +42,7 @@
               <p>There are no name in :db <%= params[:search] %>.</p>
           <% end %>
     <% end %>
+
 
 
 
