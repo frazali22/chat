@@ -3,7 +3,7 @@
     <% @posts.each do |article| %>
         <div class="article">
           <h1 class="article-title"><%= image_tag(article.picture_url, :width => 100) if article.picture.present? %><%= article.name %></h1>
-          <p class="article-content"><%= article.email %><%= article.enrollment %><%= article.contact %></p>
+          <p class="article-content"><%= article.email %><%= article.contact %></p>
           <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
                   "data-sid" => current_user.id, "data-rip" => article.id %>
               </div>
